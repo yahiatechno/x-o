@@ -1,6 +1,8 @@
 package xo;
 
 import javax.swing.JFrame;
+
+import java.awt.Component;
 import java.awt.GridLayout;
 import javax.swing.JButton;
 
@@ -16,13 +18,18 @@ public class XO {
 	static JButton btn7 = new JButton();    
 	static JButton btn8 = new JButton();
 	static JButton btn9 = new JButton();
-
+	
+	static JButton array[][] = {
+			{btn1, btn2, btn3},
+			{btn4, btn5, btn6},
+			{btn7, btn8, btn9}
+	};
+	
 
 	public static void main(String[] args) {
 		JFrame frame01 = new JFrame();    	
 		
 		addListeners();
-		setButtonNames();
 
 		frame01.add(btn1);
 		frame01.add(btn2);
@@ -43,7 +50,7 @@ public class XO {
 	
 	public static void addListeners() {
 		
-		listener_1 listenerOne =  new listener_1();
+		listener_1 listenerOne =  new listener_1(array);
 		btn1.addActionListener(listenerOne);
 		btn2.addActionListener(listenerOne);
 		btn3.addActionListener(listenerOne);
@@ -55,17 +62,5 @@ public class XO {
 		btn9.addActionListener(listenerOne);
 		
 	}//end addListeners
-	
-	public static void setButtonNames() {
-		btn1.setName("a");
-		btn2.setName("b");
-		btn3.setName("c");
-		btn4.setName("d");
-		btn5.setName("e");
-		btn6.setName("f");
-		btn7.setName("g");
-		btn8.setName("h");
-		btn9.setName("i");
-	}//end setButtonNames
 	
 }//end class
