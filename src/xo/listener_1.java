@@ -2,17 +2,22 @@ package xo;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+
 import javax.swing.JButton;
+import javax.swing.JOptionPane;
 import javax.swing.ImageIcon;
-import java.awt.Component;
 
 public class listener_1 implements ActionListener{
 	
-	ImageIcon test = new ImageIcon("C://Users/User/eclipse-workspace/xo/src/xo/x.png");
-	JButton array[][];
+	ImageIcon xIcon = new ImageIcon("C:/Users/Kimo Store/eclipse-workspace/x-o/src/xo/x.png");
+	ImageIcon oIcon = new ImageIcon("C:/Users/Kimo Store/eclipse-workspace/x-o/src/xo/dot.png");
+	ArrayList<JButton> array = new ArrayList<JButton>();
+	int j;
+	int i;
 	
-	public listener_1(JButton a[][]){
-		this.array = a;
+	public listener_1(ArrayList<JButton> array){
+		this.array = array;
 	}//end listener_1
 	
 	@Override
@@ -20,35 +25,64 @@ public class listener_1 implements ActionListener{
 		
 		JButton btn = (JButton) event.getSource();
 		btn.setName("x");
-		btn.setIcon(test);
+		btn.setIcon(xIcon);
+		//pc turn
+		pcTuren();
 		checkXResult();
+		checkOResult();
 	 }//end actionPerformed
 		
 	
 	public void checkXResult() {
-		     if (array[0][0].getName() == "x" && array[0][1].getName() == "x" && array[0][2].getName() == "x") 
-			System.out.print("win");
-		else if (array[1][0].getName() == "x" && array[1][1].getName() == "x" && array[1][2].getName() == "x")
-			System.out.print("win");
-		else if (array[2][0].getName() == "x" && array[2][1].getName() == "x" && array[2][2].getName() == "x") 
-			System.out.print("win");
-		else if (array[0][0].getName() == "x" && array[1][0].getName() == "x" && array[2][0].getName() == "x")
-			System.out.print("win");
-		else if (array[0][1].getName() == "x" && array[1][1].getName() == "x" && array[2][1].getName() == "x") 
-			System.out.print("win");
-		else if (array[0][2].getName() == "x" && array[1][2].getName() == "x" && array[2][2].getName() == "x")
-			System.out.print("win");
-		else if (array[0][0].getName() == "x" && array[1][1].getName() == "x" && array[2][2].getName() == "x")
-			System.out.print("win");
-		else if (array[0][2].getName() == "x" && array[1][1].getName() == "x" && array[2][0].getName() == "x")
-			System.out.print("win");
+		     if (array.get(0).getName() == "x" && array.get(1).getName() == "x" && array.get(2).getName() == "x") 
+		    	 JOptionPane.showMessageDialog(null, "congratulations you are the winner");
+		else if (array.get(3).getName() == "x" && array.get(4).getName() == "x" && array.get(5).getName() == "x")
+			JOptionPane.showMessageDialog(null, "congratulations you are the winner");
+		else if (array.get(6).getName() == "x" && array.get(7).getName() == "x" && array.get(8).getName() == "x") 
+			JOptionPane.showMessageDialog(null, "congratulations you are the winner");
+		else if (array.get(0).getName() == "x" && array.get(3).getName() == "x" && array.get(6).getName() == "x")
+			JOptionPane.showMessageDialog(null, "congratulations you are the winner");
+		else if (array.get(1).getName() == "x" && array.get(4).getName() == "x" && array.get(7).getName() == "x") 
+			JOptionPane.showMessageDialog(null, "congratulations you are the winner");
+		else if (array.get(2).getName() == "x" && array.get(5).getName() == "x" && array.get(8).getName() == "x")
+			JOptionPane.showMessageDialog(null, "congratulations you are the winner");
+		else if (array.get(0).getName() == "x" && array.get(4).getName() == "x" && array.get(8).getName() == "x")
+			JOptionPane.showMessageDialog(null, "congratulations you are the winner");
+		else if (array.get(2).getName() == "x" && array.get(4).getName() == "x" && array.get(6).getName() == "x")
+			JOptionPane.showMessageDialog(null, "congratulations you are the winner");
 	}// end checkResult
 	
-	public void printArray() {
-		for(int i=0; i<array.length; i++) {
-			for(int j=0; j<array.length; j++) {
-				
+	public void checkOResult() {
+	     if (array.get(0).getName() == "o" && array.get(1).getName() == "o" && array.get(2).getName() == "o") 
+	    	 JOptionPane.showMessageDialog(null, "you lost");
+	else if (array.get(3).getName() == "o" && array.get(4).getName() == "o" && array.get(5).getName() == "o")
+		JOptionPane.showMessageDialog(null, "you lost");
+	else if (array.get(6).getName() == "o" && array.get(7).getName() == "o" && array.get(8).getName() == "o") 
+		JOptionPane.showMessageDialog(null, "you lost");
+	else if (array.get(0).getName() == "o" && array.get(3).getName() == "o" && array.get(6).getName() == "o")
+		JOptionPane.showMessageDialog(null, "you lost");
+	else if (array.get(1).getName() == "o" && array.get(4).getName() == "o" && array.get(7).getName() == "o") 
+		JOptionPane.showMessageDialog(null, "you lost");
+	else if (array.get(2).getName() == "o" && array.get(5).getName() == "o" && array.get(8).getName() == "o")
+		JOptionPane.showMessageDialog(null, "you lost");
+	else if (array.get(0).getName() == "o" && array.get(4).getName() == "o" && array.get(8).getName() == "o")
+		JOptionPane.showMessageDialog(null, "you lost");
+	else if (array.get(2).getName() == "o" && array.get(4).getName() == "o" && array.get(6).getName() == "o")
+		JOptionPane.showMessageDialog(null, "you lost");
+}// end checkResult
+	
+
+
+
+	public void pcTuren() {
+		for(JButton btn: array) {
+			if(btn.getName() == null) {
+				btn.getName();
+				btn.setName("o");
+				btn.setIcon(oIcon);
+				break;
+				}//end if
 			}//end for
-		}// end outer for 
+	
 	}//end pcTurn
 }// end class

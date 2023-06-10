@@ -4,6 +4,8 @@ import javax.swing.JFrame;
 
 import java.awt.Component;
 import java.awt.GridLayout;
+import java.util.ArrayList;
+
 import javax.swing.JButton;
 
 public class XO {
@@ -19,15 +21,20 @@ public class XO {
 	static JButton btn8 = new JButton();
 	static JButton btn9 = new JButton();
 	
-	static JButton array[][] = {
-			{btn1, btn2, btn3},
-			{btn4, btn5, btn6},
-			{btn7, btn8, btn9}
-	};
+	static ArrayList<JButton> array = new ArrayList<JButton>();
 	
-
 	public static void main(String[] args) {
 		JFrame frame01 = new JFrame();    	
+		
+		array.add(btn1);
+		array.add(btn2);
+		array.add(btn3);
+		array.add(btn4);
+		array.add(btn5);
+		array.add(btn6);
+		array.add(btn7);
+		array.add(btn8);
+		array.add(btn9);
 		
 		addListeners();
 
@@ -49,7 +56,6 @@ public class XO {
 	}//end main
 	
 	public static void addListeners() {
-		
 		listener_1 listenerOne =  new listener_1(array);
 		btn1.addActionListener(listenerOne);
 		btn2.addActionListener(listenerOne);
